@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Main {
+public class ClasesRegex {
     public static void main(String[] args) throws FileNotFoundException {
 
         FileReader fileReader = new FileReader("src/santako.txt");
@@ -20,21 +20,14 @@ public class Main {
             casas.add(sc.nextLine());
         }
 
+
         for(int i= 0; i< casas.size(); i++){
             String linea = casas.get(i);
 
-            Pattern todo = Pattern.compile("(\\*<]:-DOo) (>:o\\)) (<]:-D)");
-            Matcher todos = todo.matcher(linea);
-
-            while(todos.find()){
-                System.out.println("Pare Noel ("+ todos.group(1) +")");
-                System.out.println("Rens ("+ todos.group(2) +")");
-                System.out.println("Follet ("+ todos.group(3) +")");
-            }
+            String expresion = String.valueOf(linea.matches("\\*<]:-DOo"));
 
 
         }
-
 
 
     }
