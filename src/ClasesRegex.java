@@ -13,22 +13,32 @@ public class ClasesRegex {
         FileReader fileReader = new FileReader("src/santako.txt");
         Scanner sc = new Scanner(fileReader);
 
-        List<String> casas = new ArrayList<>();
+        Pattern pareNoel = Pattern.compile("(\\*<]:-DOo)|(>:o\\))|([^\\*]<]:-D)");
 
-        while (sc.hasNext()){
+        int paranoel = 0;
+        int rens = 0;
+        int follets = 0;
 
-            casas.add(sc.nextLine());
+
+        while (sc.hasNext()) {
+            String line = sc.nextLine();
+
+            Matcher mpn = pareNoel.matcher(line);
+
+            while (mpn.find()) {
+                if (mpn.group(1) != null) paranoel++;
+                if (mpn.group(2) != null) rens++;
+                if (mpn.group(3) != null) follets++;
+            }
+
+            if (paranoel > 0) System.out.printf(" Pare Noel (%d)", paranoel);
+            if (rens > 0) System.out.printf(" Ren (%d)", rens);
+            if (follets > 0) System.out.printf(" Follet(%d)", follets);
+
+            paranoel = follets = rens = 0;
+            System.out.println();
+
+
         }
-
-
-        for(int i= 0; i< casas.size(); i++){
-            String linea = casas.get(i);
-
-            String expresion = String.valueOf(linea.matches("\\*<]:-DOo"));
-
-
-        }
-
-
     }
 }
