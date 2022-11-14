@@ -23,12 +23,12 @@ public class ClasesRegex {
         while (sc.hasNext()) {
             String line = sc.nextLine();
 
-            Matcher mpn = pareNoel.matcher(line);
+            Matcher matcher = pareNoel.matcher(line);
 
-            while (mpn.find()) {
-                if (mpn.group(1) != null) paranoel++;
-                if (mpn.group(2) != null) rens++;
-                if (mpn.group(3) != null) follets++;
+            while (matcher.find()) {
+                if (matcher.group(1) != null) paranoel++;
+                if (matcher.group(2) != null) rens++;
+                if (matcher.group(3) != null) follets++;
             }
 
             if (paranoel > 0) System.out.printf(" Pare Noel (%d)", paranoel);
